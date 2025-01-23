@@ -41,5 +41,3 @@ function removedItem(event) {
     warningIcon.src = "assets/warning.png"  
     clickedItem.append(removedItem, warningIcon, xIcon)
 }
-
-
