@@ -11,35 +11,53 @@ function addItem() {
     const itemList = document.querySelector("ul")
     const newItem = document.createElement("li")
     const itemName = document.createElement("span")
+    const deleteButton = document.createElement("button")
     const deleteIcon = document.createElement("img")
 
     const itemText = input.value
 
-    deleteIcon.src = "assets/icon-delete.png"
-    newItem.classList.add("item")
     itemName.textContent = itemText
+    newItem.classList.add("item")
 
-    newItem.append(itemName, deleteIcon)
+    deleteButton.id = "remove-button"
+    deleteButton.type = "button"
+
+    deleteIcon.src = "assets/icon-delete.png"
+    deleteIcon.id = "delete-icon"
+    deleteIcon.alt = "delete icon"
+
+    deleteButton.append(deleteIcon)
+    newItem.append(itemName, deleteButton)
     itemList.append(newItem)
 
-    deleteIcon.addEventListener("click", (ev) => removeItem(ev, itemText))
+    deleteIcon.addEventListener("click", (ev) => removeItem(ev.target))
 }
 
-function removeItem(event, itemText) {
-    event.preventDefault()
-    const clickedItem = event.target.closest(".item")
+function removeItem(button) {
+    const listItem = button.closest(".item")
+    const listTitleElement = listItem.querySelector("span")
+    const listTitle = listTitleElement.textContent
 
-    console.log(event, clickedItem)
-
-    clickedItem.innerHTML = ""
-
-    const removedItemText = document.createElement("span")
-    const xIcon = document.createElement("img")
+    const removalText = document.createElement("span")
     const warningIcon = document.createElement("img")
+    const xIcon = document.createElement("img")
+    const iconContainer = document.createElement("div")
 
-    removedItemText.innerHTML = `<s>${itemText}</s>`
-    xIcon.src = "assets/delete-small.png"
+    listItem.innerHTML = ""
+    removalText.innerHTML = `${listTitle} foi removido`
+
+    iconContainer.classList.add("icon-container")
+
     warningIcon.src = "assets/warning.png"
+    warningIcon.classList.add("removed-item-icon")
 
-    clickedItem.append(removedItemText, xIcon, warningIcon)
+    xIcon.src = "assets/delete-small.png"
+    xIcon.classList.add("removed-item-icon")
+
+    iconContainer.append(warningIcon, xIcon)
+    listItem.append(removalText, iconContainer)
+
+    setTimeout(() => {
+        listItem.remove()
+    }, 4000) // 4000ms == 4 seconds
 }

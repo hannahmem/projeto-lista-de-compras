@@ -1,5 +1,6 @@
 body {
     background-color: #f4f5fb;
+    font-family: Arial;
 }
 
 #input-item {
@@ -8,7 +9,6 @@ body {
 }
 
 ul {
-    border: 0;
     border-radius: 12em;
     background-color: #ffffff;
     list-style: none;
@@ -22,4 +22,16 @@ ul {
 #remove-button {
     background: none;
     border: none;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 42px;
+    padding-right: 20px;
+}
+
+.removed-item-icon {
+    background-color: #888;
 }
