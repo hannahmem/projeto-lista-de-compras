@@ -57,4 +57,8 @@ function removedItem(button) {
     setTimeout(() => {
         listItem.remove()
     }, 4000)
+
+    xIcon.onclick = () => {
+        listItem.remove()
+    }
 }
