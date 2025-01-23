@@ -1,0 +1,24 @@
+body {
+    background-color: #f4f5fb;
+}
+
+#input-item {
+    background-color: #FFFFFF;
+    border-radius: 12;
+}
+
+ul {
+    border: 0;
+    border-radius: 12em;
+    background-color: #FFFFFF;
+}
+
+#submit-button {
+    background-color: #CA3884;
+    color: #FFFFFF;
+}
+
+#remove-button {
+    background: none;
+    border: none;
+}

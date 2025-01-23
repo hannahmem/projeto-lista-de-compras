@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Lista de compras</title>
+</head>
+<body>
+    <main>
+        <img src="assets/logo.png" alt="logo">
+        <p>Voltar</p>
+        <h1>Compras da semana</h1>
+
+        <form>
+            <input type="text" placeholder="Adicione um novo item" id="input-item" required>
+            <button type="submit" id="submit-button" class="button">Adicionar item</button>
+        </form>
+        <ul>
+            <li class="item ">
+                <span>Pão de forma</span>
+                <button type="button" id="remove-button" onclick="remItem()">
+                    <img src="assets/icon-delete.png" id="delete-icon" alt="delete icon">
+                </button>
+            </li>
+        </ul>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
