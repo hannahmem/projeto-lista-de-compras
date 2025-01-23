@@ -23,3 +23,7 @@ ul {
     background: none;
     border: none;
 }
+
+.removed-item-icon {
+    background-color: black;
+}

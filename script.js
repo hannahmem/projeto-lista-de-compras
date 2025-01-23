@@ -11,33 +11,50 @@ function addItem(){
     const itemList = document.querySelector("ul")
     const newItem = document.createElement("li")
     const itemName = document.createElement("span")
+    const deleteButton = document.createElement("button")
     const deleteIcon = document.createElement("img")
     
     const itemText = input.value
 
-    deleteIcon.src = "assets/icon-delete.png"  
-    newItem.classList.add("item")
     itemName.textContent = itemText
+    newItem.classList.add("item")
     
-    newItem.append(itemName, deleteIcon)
+    deleteButton.id = "remove-button"
+    deleteButton.type = "button"
+
+    deleteIcon.src = "assets/icon-delete.png"  
+    deleteIcon.id = "delete-icon"
+    deleteIcon.alt = "delete icon"
+
+    deleteButton.append(deleteIcon)
+    newItem.append(itemName, deleteButton)
     itemList.append(newItem)
     
         
-    deleteIcon.onclick = (event) => removedItem(event)
+    deleteIcon.onclick = (event) => removedItem(event.target)
 }
 
-function removedItem(event) {
-    event.preventDefault()
+function removedItem(button) {
+    const listItem = button.closest(".item")
+    const listTitleElement = listItem.querySelector("span")
+    const listTitle = listTitleElement.textContent
 
-    const clickedItem = event.target.closest(".item")
-    clickedItem.innerHTML = ""
-
-    const removedItem = document.createElement("span")
+    const removalText = document.createElement("span")
     const xIcon = document.createElement("img")
     const warningIcon = document.createElement("img")
 
-    removedItem.innerHTML = "O item foi removido da lista"
-    xIcon.src = "assets/delete-small.png"  
+    listItem.innerHTML = ""
+    removalText.innerHTML = `${listTitle} foi removido`
+
     warningIcon.src = "assets/warning.png"  
-    clickedItem.append(removedItem, warningIcon, xIcon)
+    warningIcon.classList.add("removed-item-icon")
+    
+    xIcon.src = "assets/delete-small.png"
+    xIcon.classList.add("removed-item-icon")
+
+    listItem.append(warningIcon, removalText, xIcon)
+
+    setTimeout(() => {
+        listItem.remove()
+    }, 4000)
 }
