@@ -23,25 +23,23 @@ function addItem(){
     itemList.append(newItem)
     
         
-    deleteIcon.onclick = (event) => removedItem(event, newItem)
+    deleteIcon.onclick = (event) => removedItem(event)
 }
 
-function removedItem(event, newItem) {
+function removedItem(event) {
     event.preventDefault()
-    
-    newItem.remove()
 
     const clickedItem = event.target.closest(".item")
     clickedItem.innerHTML = ""
 
-    const removedItem = document.createElement("p")
+    const removedItem = document.createElement("span")
     const xIcon = document.createElement("img")
     const warningIcon = document.createElement("img")
 
     removedItem.innerHTML = "O item foi removido da lista"
     xIcon.src = "assets/delete-small.png"  
     warningIcon.src = "assets/warning.png"  
-    clickedItem.append(warningIcon, removedItem, xIcon)
+    clickedItem.append(removedItem, warningIcon, xIcon)
 }
 
 
