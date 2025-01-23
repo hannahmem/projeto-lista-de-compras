@@ -22,21 +22,24 @@ function addItem() {
     newItem.append(itemName, deleteIcon)
     itemList.append(newItem)
 
-    deleteIcon.onclick = (event) => {
-        event.preventDefault()
+    deleteIcon.addEventListener("click", (ev) => removeItem(ev, itemText))
+}
 
-        const clickedItem = event.target.closest(".item")
+function removeItem(event, itemText) {
+    event.preventDefault()
+    const clickedItem = event.target.closest(".item")
 
-        clickedItem.innerHTML = ""
+    console.log(event, clickedItem)
 
-        const removedItemText = document.createElement("span")
-        const xIcon = document.createElement("img")
-        const warningIcon = document.createElement("img")
+    clickedItem.innerHTML = ""
 
-        removedItemText.innerHTML = `<s>${itemText}</s>`
-        xIcon.src = "assets/delete-small.png"
-        warningIcon.src = "assets/warning.png"
+    const removedItemText = document.createElement("span")
+    const xIcon = document.createElement("img")
+    const warningIcon = document.createElement("img")
 
-        clickedItem.append(removedItemText, xIcon, warningIcon)
-    }
+    removedItemText.innerHTML = `<s>${itemText}</s>`
+    xIcon.src = "assets/delete-small.png"
+    warningIcon.src = "assets/warning.png"
+
+    clickedItem.append(removedItemText, xIcon, warningIcon)
 }
