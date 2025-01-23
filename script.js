@@ -7,37 +7,36 @@ form.addEventListener("submit", (event) => {
     addItem()
 })
 
-function addItem(){
+function addItem() {
     const itemList = document.querySelector("ul")
     const newItem = document.createElement("li")
     const itemName = document.createElement("span")
     const deleteIcon = document.createElement("img")
-    
-    deleteIcon.src = "assets/icon-delete.png"  
+
+    const itemText = input.value
+
+    deleteIcon.src = "assets/icon-delete.png"
     newItem.classList.add("item")
-    itemName.textContent = input.value
-    
+    itemName.textContent = itemText
+
     newItem.append(itemName, deleteIcon)
     itemList.append(newItem)
-    
-        
+
     deleteIcon.onclick = (event) => {
         event.preventDefault()
-        
-        newItem.remove()
 
-        function removeMessage() {
-            const removedItem = document.createElement("p")
-            const xIcon = document.createElement("img")
-            const warningIcon = document.createElement("img")
-        
-            xIcon.src = "assets/delete-small.png"  
-            warningIcon.src = "assets/warning.png"  
-            removedItem.textContent = "O item foi removido da lista"
-            itemList.append(removedItem)
-        }
-        removeMessage()
+        const clickedItem = event.target.closest(".item")
+
+        clickedItem.innerHTML = ""
+
+        const removedItemText = document.createElement("span")
+        const xIcon = document.createElement("img")
+        const warningIcon = document.createElement("img")
+
+        removedItemText.innerHTML = `<s>${itemText}</s>`
+        xIcon.src = "assets/delete-small.png"
+        warningIcon.src = "assets/warning.png"
+
+        clickedItem.append(removedItemText, xIcon, warningIcon)
     }
 }
-
-

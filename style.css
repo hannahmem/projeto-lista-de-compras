@@ -3,19 +3,20 @@ body {
 }
 
 #input-item {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border-radius: 12;
 }
 
 ul {
     border: 0;
     border-radius: 12em;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
+    list-style: none;
 }
 
 #submit-button {
-    background-color: #CA3884;
-    color: #FFFFFF;
+    background-color: #ca3884;
+    color: #ffffff;
 }
 
 #remove-button {
