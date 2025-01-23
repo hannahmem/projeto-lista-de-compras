@@ -4,14 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
     <title>Lista de compras</title>
 </head>
+
 <body>
     <main>
-        <img src="assets/logo.png" alt="logo">
-        <p>Voltar</p>
+        <img src="assets/logo.png" alt="logo" id="logo">
+        <p><- Voltar</p>
         <h1>Compras da semana</h1>
 
         <form>
@@ -20,8 +26,9 @@
         </form>
         <ul>
             <li class="item ">
+                <input type="checkbox" id="checkbox">
                 <span>Pão de forma</span>
-                <button type="button" id="remove-button">
+                <button type="button" id="remove-button" onclick="removedItem(this)">
                     <img src="assets/icon-delete.png" id="delete-icon" alt="delete icon">
                 </button>
             </li>

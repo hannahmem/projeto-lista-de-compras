@@ -1,22 +1,72 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#logo {
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
 body {
     background-color: #f4f5fb;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    font-family: "Inter", sans-serif;
+}
+
+h1 {
+    font-size: 24px;
+    padding-top: 14px;
+    padding-bottom: 30px;
 }
 
 #input-item {
+    height: 35px;
+    border-radius: 8px;
+    border-color: #d1d5db;
+    padding: 0 100px;
+    margin-bottom: 20px;
+    
     background-color: #FFFFFF;
-    border-radius: 12;
+
+    font-family: "Inter", sans-serif;
 }
 
-ul {
-    border: 0;
-    border-radius: 12em;
+.item {
     background-color: #FFFFFF;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    border-radius: 8px;
     list-style: none;
+    
+    margin-top: 10px;
+    padding: 6px 16px;
+
+    font-size: 16px;
+    font-weight: medium;
+    color: #374151;
 }
 
 #submit-button {
+    flex: 1;
+    border-radius: 8px;
     background-color: #CA3884;
     color: #FFFFFF;
+    height: 35px;
+    border: none;
+
+    padding: 0 20px;
+
+    font-family: "Inter", sans-serif;
+    font-weight: semibold;
 }
 
 #remove-button {
@@ -26,4 +76,17 @@ ul {
 
 .removed-item-icon {
     background-color: black;
+}
+
+#submit-button:hover {
+    background-color: #a52c6b; 
+}
+
+input:hover {
+    outline: 0;
+    border-color: #b9c2d0;
+}
+
+#checkbox {
+    color: #CA3884;
 }

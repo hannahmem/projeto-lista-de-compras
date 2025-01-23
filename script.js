@@ -13,8 +13,12 @@ function addItem(){
     const itemName = document.createElement("span")
     const deleteButton = document.createElement("button")
     const deleteIcon = document.createElement("img")
-    
+    const checkbox = document.createElement("input")
+
     const itemText = input.value
+
+    checkbox.id = "checkbox"
+    checkbox.type = "checkbox"
 
     itemName.textContent = itemText
     newItem.classList.add("item")
@@ -27,7 +31,7 @@ function addItem(){
     deleteIcon.alt = "delete icon"
 
     deleteButton.append(deleteIcon)
-    newItem.append(itemName, deleteButton)
+    newItem.append(checkbox, itemName, deleteButton)
     itemList.append(newItem)
     
         
