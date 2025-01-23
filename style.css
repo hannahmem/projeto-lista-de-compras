@@ -32,6 +32,9 @@ ul {
     padding-right: 20px;
 }
 
+.removal-text {
+    opacity: 0.4;
+}
 .removed-item-icon {
     background-color: #888;
 }

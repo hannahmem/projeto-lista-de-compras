@@ -47,6 +47,7 @@ function removeItem(button) {
     removalText.innerHTML = `${listTitle} foi removido`
 
     iconContainer.classList.add("icon-container")
+    removalText.classList.add("removal-text")
 
     warningIcon.src = "assets/warning.png"
     warningIcon.classList.add("removed-item-icon")
