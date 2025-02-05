@@ -21,59 +21,91 @@ body {
 }
 
 main {
+    max-width: 80%;
+    margin: auto;
+    transition: width 0.5s ease-in-out;
+    /* border: 2px solid red; */
     display: flex;
-    flex-direction: column;
+    flex-flow: column nowrap;
     align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    main {
+        width: 50%;
+        margin: 0 auto;
+    }
 }
 
 p {
-    padding-left: 10px;
     color: #CA3884;
     font-size: 14px;
     font-weight: 500;
+    align-self: flex-start;
 }
 
 h1 {
     font-size: 24px;
     padding-top: 14px;
     padding-bottom: 30px;
+    align-self: flex-start;
+}
+
+form {
+    width: 100%;
+    /* border: 2px solid blue; */
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
 }
 
 input {
     height: 35px;
+    min-width: 10%;
     border: 1px solid #d1d5db;
     border-radius: 8px;
-    padding: 0 100px;
-    margin-bottom: 20px;
+    flex: 1 1 400px;
     
     background-color: #FFFFFF;
     outline: none;
     font-family: "Inter", sans-serif;
 }
 
+.container-list {
+    border: 2px solid ;
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
 .item {
+    border: 2px solid blue;
     background-color: #FFFFFF;
     border-radius: 8px;
     list-style: none;
-    margin-top: 10px;
-    padding: 5px 190px;    
 }
 
 .item-description {
     font-size: 16px;
     color: #374151;
+    font-weight: 500;
+}
+
+input:checked #checkbox {
+    background-color: #CA3884;    
 }
 
 form button {
+    flex: 1;
     border-radius: 8px;
     background-color: #CA3884;
     color: #FFFFFF;
     height: 35px;
     border: none;
     cursor: pointer;
-
     padding: 0 20px;
-    margin-left: 8px;
 
     font-family: "Inter", sans-serif;
     font-weight: 600;
@@ -103,6 +135,7 @@ input:focus {
 
 input::placeholder {
     color: #d1d5db;
+    padding-left: 10px;
 }
 
 input:focus-within::placeholder {
@@ -111,4 +144,5 @@ input:focus-within::placeholder {
 
 #checkbox {
     color: #CA3884;
+    size: ;
 }
