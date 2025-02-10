@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+:root {
     font-family: "Inter", sans-serif;
 }
 
@@ -77,11 +80,17 @@ form {
     font-weight: 500;
 }
 
-.container-list {
+ul {
     width: 100%;
     margin-top: 10px;
     display: flex;
     flex-direction: column;
+
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: #e4ece9 #f0f0f0;
 }
 
 li {
@@ -94,6 +103,7 @@ li {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-shrink: 0;
 }
 
 .input-group {
@@ -128,6 +138,8 @@ form button {
     font-weight: 500; 
     font-size: 16px;
     line-height: 16px;
+
+    transition: background-color 0.2s;
 }
 
 #submit-button:hover {
@@ -197,4 +209,4 @@ form button {
 
 #checkbox:hover {
     border-color: #B9C2D0;
-} 
+}

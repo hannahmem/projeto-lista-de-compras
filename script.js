@@ -74,9 +74,9 @@ function removedItem(button) {
     removeDiv.append(warningIcon, removalText)
     listItem.append(removeDiv, xIcon)
 
-    // setTimeout(() => {
-    //     listItem.remove()
-    // }, 4000)
+    setTimeout(() => {
+        listItem.remove()
+    }, 3000)
 
     xIcon.onclick = () => {
         listItem.remove()
@@ -85,4 +85,6 @@ function removedItem(button) {
 
 function clearForm() {
     input.value = ""
+
+    input.focus()
 }
