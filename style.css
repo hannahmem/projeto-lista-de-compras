@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Inter", sans-serif;
 }
 
 #logo {
@@ -17,13 +18,12 @@ body {
     width: 100%;
     height: 100vh;
     background-color: #f4f5fb;
-    font-family: "Inter", sans-serif;
 }
 
 main {
-    max-width: 80%;
+    width: 55%;
     margin: auto;
-    transition: width 0.5s ease-in-out;
+    transition: width 0.3s ease-in-out;
     /* border: 2px solid red; */
     display: flex;
     flex-flow: column nowrap;
@@ -31,17 +31,12 @@ main {
     justify-content: center;
 }
 
-@media (min-width: 768px) {
-    main {
-        width: 50%;
-        margin: 0 auto;
-    }
-}
 
-p {
+a {
     color: #CA3884;
     font-size: 14px;
     font-weight: 500;
+    text-decoration: none;
     align-self: flex-start;
 }
 
@@ -56,45 +51,71 @@ form {
     width: 100%;
     /* border: 2px solid blue; */
     display: flex;
-    flex-flow: row wrap;
-    gap: 10px;
+    flex-flow: row nowrap;
+    gap: 10px 15px;
 }
 
-input {
+@media (max-width: 675px) {
+    main {
+        width: 80%;
+    }
+
+    form {
+        flex-flow: row wrap;
+    }
+}
+
+#input-item {
     height: 35px;
     min-width: 10%;
-    border: 1px solid #d1d5db;
+    width: 100%;
+    border: 2px solid #d1d5db;
     border-radius: 8px;
     flex: 1 1 400px;
+    padding-left: 10px;
     
     background-color: #FFFFFF;
     outline: none;
-    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .container-list {
-    border: 2px solid ;
+    /* border: 2px solid ; */
     width: 100%;
     margin-top: 10px;
     display: flex;
     flex-direction: column;
 }
 
-.item {
-    border: 2px solid blue;
+li {
+    /* border: 2px solid blue; */
     background-color: #FFFFFF;
     border-radius: 8px;
     list-style: none;
+    margin: 5px 0;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .item-description {
     font-size: 16px;
+    line-height: 24px;
     color: #374151;
     font-weight: 500;
 }
 
-input:checked #checkbox {
-    background-color: #CA3884;    
+#remove-button {
+    background: none;
+    border: none;
 }
 
 form button {
@@ -105,44 +126,52 @@ form button {
     height: 35px;
     border: none;
     cursor: pointer;
-    padding: 0 20px;
+    padding: 0 15px;
 
-    font-family: "Inter", sans-serif;
-    font-weight: 600;
-}
-
-#remove-button {
-    background: none;
-    border: none;
-}
-
-.removed-item-icon {
-    background-color: black;
+    font-weight: 500; 
+    font-size: 16px;
+    line-height: 16px;
 }
 
 #submit-button:hover {
     background-color: #a52c6b; 
 }
 
-input:hover {
+#removal-style {
+    background-color: #c93847;
+    color: white;
+    height: 30px;
+}
+
+#input-item:hover {
     outline: 0;
     border-color: #b9c2d0;
 }
 
-input:focus {
-    border: 1.5px solid #a52c6b;
+#input-item:focus {
+    border: 2px solid #a52c6b;
 }
 
-input::placeholder {
+#input-item::placeholder {
     color: #d1d5db;
-    padding-left: 10px;
+    font-size: 16px;
 }
 
-input:focus-within::placeholder {
+#input-item:focus-within::placeholder {
     color: #080B12;
 }
 
 #checkbox {
+    margin: 0;
+    appearance: none;
+    height: 16px;
+    width: 16px;
+    border: 1.5px solid #d1d5db;
+    border-radius: 5px;
     color: #CA3884;
-    size: ;
+    cursor: pointer;
+}
+
+#checkbox:checked {
+    background-color: #CA3884;    
 }
