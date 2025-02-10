@@ -46,7 +46,8 @@ function addItem(){
         })
         clearForm()
     } catch (error) {
-        console.log("Impossível adicionar item. Tente novamente!")
+        alert("Impossível adicionar item. Tente novamente!")
+        console.log("Erro ao adicionar item.")
     }
 }
 
@@ -73,9 +74,9 @@ function removedItem(button) {
     removeDiv.append(warningIcon, removalText)
     listItem.append(removeDiv, xIcon)
 
-    setTimeout(() => {
-        listItem.remove()
-    }, 4000)
+    // setTimeout(() => {
+    //     listItem.remove()
+    // }, 4000)
 
     xIcon.onclick = () => {
         listItem.remove()
