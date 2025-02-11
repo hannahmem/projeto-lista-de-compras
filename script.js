@@ -21,18 +21,18 @@ function addItem(){
         
         inputDiv.classList.add("input-group")
     
-        checkbox.id = "checkbox"
+        checkbox.classList.add("checkbox")
         checkbox.type = "checkbox"
         
         itemName.textContent = itemText
         itemName.classList.add("item-description")
         newItem.classList.add("item")
         
-        deleteButton.id = "remove-button"
+        deleteButton.classList.add("remove-button")
         deleteButton.type = "button"
         
         deleteIcon.src = "assets/icon-delete.svg"  
-        deleteIcon.id = "delete-icon"
+        deleteIcon.classList.add("delete-icon")
         deleteIcon.alt = "delete icon"
         
         deleteButton.append(deleteIcon)
@@ -41,8 +41,8 @@ function addItem(){
         itemList.append(newItem)
         
         deleteIcon.addEventListener("click", function (event) {
-            newItem.id = "removal-style"
-            removedItem(event.target)
+            newItem.classList.add("removal-style")
+            removeItem(event.target)
         })
         clearForm()
     } catch (error) {
@@ -51,7 +51,7 @@ function addItem(){
     }
 }
 
-function removedItem(button) {
+function removeItem(button) {
     const listItem = button.closest(".item")
     const listTitleElement = listItem.querySelector("span")
     const listTitle = listTitleElement.textContent
