@@ -1,39 +1,53 @@
 const input = document.querySelector("input")
 const form = document.querySelector("form")
+const itemList = document.querySelector("ul")
+
+const itemsArray = JSON.parse(localStorage.getItem("items")) || []
+
+function updateItems() {
+    localStorage.setItem("items", JSON.stringify(itemsArray))
+}
 
 form.addEventListener("submit", (event) => {
     event.preventDefault()
 
     addItem()
+    updateItems()
 })
 
-function addItem(){
+function addItem(item = null){
     try {
-        const itemList = document.querySelector("ul")
         const newItem = document.createElement("li")
         const itemName = document.createElement("span")
+
         const inputDiv = document.createElement("div")
-        const deleteButton = document.createElement("button")
-        const deleteIcon = document.createElement("img")
-        const checkbox = document.createElement("input")
-        
-        const itemText = input.value
-        
         inputDiv.classList.add("input-group")
-    
-        checkbox.classList.add("checkbox")
-        checkbox.type = "checkbox"
         
-        itemName.textContent = itemText
-        itemName.classList.add("item-description")
-        newItem.classList.add("item")
-        
+        const deleteButton = document.createElement("button")
         deleteButton.classList.add("remove-button")
         deleteButton.type = "button"
         
+        const deleteIcon = document.createElement("img")
         deleteIcon.src = "assets/icon-delete.svg"  
         deleteIcon.classList.add("delete-icon")
         deleteIcon.alt = "delete icon"
+        
+        const checkbox = document.createElement("input")
+        checkbox.classList.add("checkbox")
+        checkbox.type = "checkbox"
+
+        // Se o item for passado como argumento (carregando do localStorage), usa ele
+        // Caso contrário, pega o valor do input e adiciona no array
+        if (!item) {
+            item = input.value
+            itemsArray.push(item)
+            updateItems()
+        }
+
+        itemName.textContent = item
+        itemName.classList.add("item-description")
+        newItem.classList.add("item")
+        
         
         deleteButton.append(deleteIcon)
         inputDiv.append(checkbox, itemName)
@@ -42,8 +56,9 @@ function addItem(){
         
         deleteIcon.addEventListener("click", function (event) {
             newItem.classList.add("removal-style")
-            removeItem(event.target)
+            removeItem(event.target, item)
         })
+
         clearForm()
     } catch (error) {
         alert("Impossível adicionar item. Tente novamente!")
@@ -51,7 +66,11 @@ function addItem(){
     }
 }
 
-function removeItem(button) {
+itemsArray.forEach(item => {
+    addItem(item)
+})
+
+function removeItem(button, item) {
     const listItem = button.closest(".item")
     const listTitleElement = listItem.querySelector("span")
     const listTitle = listTitleElement.textContent
@@ -73,6 +92,12 @@ function removeItem(button) {
 
     removeDiv.append(warningIcon, removalText)
     listItem.append(removeDiv, xIcon)
+
+    const index = itemsArray.indexOf(item)
+    if (index !== -1) {
+        itemsArray.splice(index, 1)
+        updateItems()
+    }
 
     setTimeout(() => {
         listItem.remove()
