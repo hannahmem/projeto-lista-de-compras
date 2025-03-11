@@ -2,21 +2,34 @@ const input = document.querySelector("input")
 const form = document.querySelector("form")
 const itemList = document.querySelector("ul")
 
-const itemsArray = JSON.parse(localStorage.getItem("items")) || []
+const itemsArray = []
+
+;(JSON.parse(localStorage.getItem("items")) || []).forEach((item) => {
+    addItem(item)
+})
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault()
+    const itemName = event.target.querySelector("input").value
+    addItem({ name: itemName, done: false })
+    updateItems()
+})
 
 function updateItems() {
     localStorage.setItem("items", JSON.stringify(itemsArray))
 }
 
-form.addEventListener("submit", (event) => {
-    event.preventDefault()
-
-    addItem()
-    updateItems()
-})
-
-function addItem(item = null) {
+function addItem(item) {
+    const itemIdx = itemsArray.length - 1
+    console.log(":::", { item, itemsArray, itemIdx })
     try {
+        if (itemsArray.some((it) => it.name === item.name)) {
+            alert(`${item.name} já existe na lista!`)
+            clearForm()
+            return
+        }
+        itemsArray.push(item)
+
         const newItem = document.createElement("li")
         const itemName = document.createElement("span")
 
@@ -35,21 +48,9 @@ function addItem(item = null) {
         const checkbox = document.createElement("input")
         checkbox.classList.add("checkbox")
         checkbox.type = "checkbox"
+        checkbox.checked = item.done
 
-        // Se o item for passado como argumento (carregando do localStorage), usa ele
-        // Caso contrário, pega o valor do input e adiciona no array
-        if (!item) {
-            item = input.value
-            if (itemsArray.includes(item)) {
-                alert(`${item} já existe na lista!`)
-                clearForm()
-                return
-            }
-            itemsArray.push(item)
-            updateItems()
-        }
-
-        itemName.textContent = item
+        itemName.textContent = item.name
         itemName.classList.add("item-description")
         newItem.classList.add("item")
 
@@ -57,6 +58,13 @@ function addItem(item = null) {
         inputDiv.append(checkbox, itemName)
         newItem.append(inputDiv, deleteButton)
         itemList.append(newItem)
+
+        checkbox.addEventListener("change", (event) => {
+            const checkedItem = itemsArray[itemIdx]
+            checkedItem.done = event.target.checked
+            console.log(event.target.checked, checkedItem)
+            updateItems()
+        })
 
         deleteIcon.addEventListener("click", function (event) {
             newItem.classList.add("removal-style")
@@ -66,6 +74,7 @@ function addItem(item = null) {
             }
         })
 
+        updateItems()
         clearForm()
     } catch (error) {
         alert("Impossível adicionar item. Tente novamente!")
@@ -73,10 +82,6 @@ function addItem(item = null) {
         return
     }
 }
-
-itemsArray.forEach((item) => {
-    addItem(item)
-})
 
 function removeItem(button, item) {
     const listItem = button.closest(".item")
@@ -101,7 +106,8 @@ function removeItem(button, item) {
     removeDiv.append(warningIcon, removalText)
     listItem.append(removeDiv, xIcon)
 
-    const index = itemsArray.indexOf(item)
+    const index = itemsArray.findIndex((it) => it.name === item.name)
+    //   const index = itemsArray.indexOf(item);
     if (index !== -1) {
         itemsArray.splice(index, 1)
         updateItems()
