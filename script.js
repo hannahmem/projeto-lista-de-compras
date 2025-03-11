@@ -3,8 +3,9 @@ const form = document.querySelector("form")
 const itemList = document.querySelector("ul")
 
 const itemsArray = []
+const storedItems = JSON.parse(localStorage.getItem("items")) || []
 
-;(JSON.parse(localStorage.getItem("items")) || []).forEach((item) => {
+storedItems.forEach((item) => {
     addItem(item)
 })
 
@@ -20,8 +21,6 @@ function updateItems() {
 }
 
 function addItem(item) {
-    const itemIdx = itemsArray.length - 1
-    console.log(":::", { item, itemsArray, itemIdx })
     try {
         if (itemsArray.some((it) => it.name === item.name)) {
             alert(`${item.name} já existe na lista!`)
@@ -29,6 +28,8 @@ function addItem(item) {
             return
         }
         itemsArray.push(item)
+        const itemIdx = itemsArray.length - 1
+        console.log(":::", { item, itemsArray, itemIdx })
 
         const newItem = document.createElement("li")
         const itemName = document.createElement("span")
@@ -61,8 +62,8 @@ function addItem(item) {
 
         checkbox.addEventListener("change", (event) => {
             const checkedItem = itemsArray[itemIdx]
-            checkedItem.done = event.target.checked
             console.log(event.target.checked, checkedItem)
+            checkedItem.done = event.target.checked
             updateItems()
         })
 
