@@ -40,6 +40,11 @@ function addItem(item = null){
         // Caso contrário, pega o valor do input e adiciona no array
         if (!item) {
             item = input.value
+            if (itemsArray.includes(item)) {
+                alert(`${item} já existe na lista!`)
+                clearForm()
+                return
+            }
             itemsArray.push(item)
             updateItems()
         }
@@ -57,12 +62,16 @@ function addItem(item = null){
         deleteIcon.addEventListener("click", function (event) {
             newItem.classList.add("removal-style")
             removeItem(event.target, item)
+            if (itemsArray.length === 0) {
+                localStorage.clear()
+            }
         })
 
         clearForm()
     } catch (error) {
         alert("Impossível adicionar item. Tente novamente!")
         console.log("Erro ao adicionar item.")
+        return
     }
 }
 
