@@ -1,46 +1,4 @@
-<<<<<<< HEAD
-body {
-    background-color: #f4f5fb;
-    font-family: Arial;
-}
-
-#input-item {
-    background-color: #ffffff;
-    border-radius: 12;
-}
-
-ul {
-    border-radius: 12em;
-    background-color: #ffffff;
-    list-style: none;
-}
-
-#submit-button {
-    background-color: #ca3884;
-    color: #ffffff;
-}
-
-#remove-button {
-    background: none;
-    border: none;
-}
-
-.item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 42px;
-    padding-right: 20px;
-}
-
-.removal-text {
-    opacity: 0.4;
-}
-.removed-item-icon {
-    background-color: #888;
-}
-=======
-* { 
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -58,7 +16,6 @@ ul {
     margin-right: auto;
 }
 
-
 body {
     width: 100%;
     height: 100vh;
@@ -66,7 +23,7 @@ body {
 }
 
 a {
-    color: #CA3884;
+    color: #ca3884;
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
@@ -115,8 +72,8 @@ form {
     border-radius: 8px;
     flex: 1 1 400px;
     padding-left: 10px;
-    
-    background-color: #FFFFFF;
+
+    background-color: #ffffff;
     outline: none;
     font-size: 16px;
     font-weight: 500;
@@ -136,7 +93,7 @@ ul {
 }
 
 li {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border-radius: 8px;
     list-style: none;
     margin: 5px 0;
@@ -169,15 +126,15 @@ li {
 form button {
     flex: 1;
     border-radius: 8px;
-    background-color: #CA3884;
-    color: #FFFFFF;
+    background-color: #ca3884;
+    color: #ffffff;
     height: 44px;
     border: none;
     cursor: pointer;
     padding: 0 15px;
-    margin-bottom: 12px;;
+    margin-bottom: 12px;
 
-    font-weight: 500; 
+    font-weight: 500;
     font-size: 16px;
     line-height: 16px;
 
@@ -185,7 +142,7 @@ form button {
 }
 
 #submit-button:hover {
-    background-color: #a52c6b; 
+    background-color: #a52c6b;
 }
 
 .removal-style {
@@ -204,13 +161,13 @@ form button {
     border: 2px solid #a52c6b;
 }
 
-#input-item::placeholder { 
+#input-item::placeholder {
     color: #d1d5db;
     font-size: 16px;
 }
 
 #input-item:focus-within::placeholder {
-    color: #080B12;
+    color: #080b12;
 }
 
 .checkbox {
@@ -221,7 +178,7 @@ form button {
     width: 16px;
     border: 2px solid #d1d5db;
     border-radius: 5px;
-    color: #CA3884;
+    color: #ca3884;
     cursor: pointer;
     flex: none;
 }
@@ -245,11 +202,10 @@ form button {
 }
 
 .checkbox:checked {
-    background-color: #CA3884;
-    border: none;  
+    background-color: #ca3884;
+    border: none;
 }
 
 .checkbox:hover {
-    border-color: #B9C2D0;
+    border-color: #b9c2d0;
 }
->>>>>>> main
