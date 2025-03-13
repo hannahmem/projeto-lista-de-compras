@@ -1,33 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+            rel="stylesheet"
+        />
 
-    <title>Lista de compras</title>
-</head>
-<body>
-    <main>
-        <img src="assets/logo.png" alt="logo">
-        <p>Voltar</p>
-        <h1>Compras da semana</h1>
+        <link rel="stylesheet" href="style.css" />
 
-        <form>
-            <input type="text" placeholder="Adicione um novo item" id="input-item" required>
-            <button type="submit" id="submit-button" class="button">Adicionar item</button>
-        </form>
-        <ul>
-            <li class="item">
-                <span>Pão de forma</span>
-                <button type="button" id="remove-button" onclick="removeItem(this)">
-                    <img src="assets/icon-delete.png" id="delete-icon" alt="delete icon">
+        <title>Lista de compras</title>
+    </head>
+
+    <body>
+        <header>
+            <img src="assets/logo.png" alt="logo" id="logo" />
+        </header>
+        <main>
+            <a href="#"><- Voltar</a>
+            <h1>Compras da semana</h1>
+
+            <form>
+                <input
+                    type="text"
+                    placeholder="Adicione um novo item"
+                    id="input-item"
+                    required
+                />
+                <button type="submit" id="submit-button" class="button">
+                    Adicionar item
                 </button>
-            </li>
-        </ul>
-    </main>
+            </form>
+            <ul class="container-list">
+                <!-- <li class="item">
+                <div class="input-group">
+                    <input type="checkbox" class="checkbox">
+                    <span class="item-description">Pão de forma</span>
+                </div>
+                <button type="button" class="remove-button" onclick="removeItem(this)">
+                    <img src="assets/icon-delete.svg" class="delete-icon" alt="delete icon">
+                </button>
+            </li> -->
+            </ul>
+        </main>
 
-    <script src="script.js"></script>
-</body>
+        <script src="script.js"></script>
+    </body>
 </html>
